@@ -14,7 +14,6 @@ export default class Calculator {
       event.preventDefault();
       this.getInput(event);
     });
-
     this.pads.addEventListener('mousedown', (event) => {
       const target = event.target;
       this.onPadStyle(target);
@@ -23,16 +22,9 @@ export default class Calculator {
       const target = event.target;
       this.offPadStyle(target);
       this.getButton(target);
-      this.checkInputLength();
     });
   }
 
-  checkInputLength() {
-    console.log(this.userData.value);
-    if (this.userData.value.lenght > 20) {
-      alert('You Type Too Much');
-    }
-  }
   getValues(value) {
     this.value = value;
   }

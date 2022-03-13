@@ -16,9 +16,35 @@ calculator.getValues((value) => {
   } else if (value === '=' || value === 'C') {
     if (value === '=') {
       calculator.userData.value = eval(formula);
-      throw new Error("Can't calculate");
     } else if (value === 'C') {
       calculator.userData.value = '';
     }
   }
 });
+
+window.addEventListener('keyup', (event) => {
+  const inputData = calculator.userData.value;
+
+  if (event.key === 'Enter') {
+    checkInputCharactorAvailable(inputData);
+    if (inputData.length > 20) {
+      alert("It's too long too calculate.");
+      calculator.userData.value = '';
+    }
+    if (!inputData) {
+      alert('Please Input number');
+      return;
+    }
+  }
+});
+
+function checkInputCharactorAvailable(data) {
+  const available = /[-+/*=()0-9]/;
+
+  if (available.test(data) === false) {
+    alert('Please Input Number And Operator(+,-,/,*)');
+    calculator.userData.value = '';
+  } else {
+    return;
+  }
+}
