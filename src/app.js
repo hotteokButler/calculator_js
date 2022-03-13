@@ -31,10 +31,6 @@ window.addEventListener('keyup', (event) => {
       alert("It's too long too calculate.");
       calculator.userData.value = '';
     }
-    if (!inputData) {
-      alert('Please Input number');
-      return;
-    }
   }
 });
 
