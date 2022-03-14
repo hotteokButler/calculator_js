@@ -13,8 +13,9 @@ calculator.getValues((value) => {
   const formula = calculator.userData.value;
   if (value !== '=' && value !== 'C') {
     calculator.userData.value += value;
-  } else if (value === '=' || value === 'C') {
+  } else if (value === '=') {
     if (value === '=') {
+      checkInputCharactorAvailable(calculator.userData.value);
       calculator.userData.value = eval(formula);
     } else if (value === 'C') {
       calculator.userData.value = '';
