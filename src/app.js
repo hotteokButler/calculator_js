@@ -9,17 +9,12 @@ import Calculator from './calculator.js';
 
 const calculator = new Calculator();
 
-calculator.getValues((value) => {
-  const formula = calculator.userData.value;
-  if (value !== '=' && value !== 'C') {
-    calculator.userData.value += value;
-  } else if (value === '=') {
-    if (value === '=') {
-      checkInputCharactorAvailable(calculator.userData.value);
-      calculator.userData.value = eval(formula);
-    } else if (value === 'C') {
-      calculator.userData.value = '';
-    }
+window.addEventListener('click', (e) => {
+  const targetValue = e.target.value;
+  if (targetValue === '=') {
+    checkInputCharactorAvailable(calculator.userData.value);
+  } else {
+    return;
   }
 });
 
