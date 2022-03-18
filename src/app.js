@@ -37,9 +37,11 @@ function checkInputCharactorAvailable(data) {
   if (available.test(data) === false) {
     alert('Please Input Number And Operator(+,-,/,*)');
     calculator.userData.value = '';
+    return;
   } else if (available02.test(data)) {
     alert('Please Input Number too');
     calculator.userData.value = '';
+    return;
   } else {
     return;
   }
