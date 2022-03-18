@@ -32,9 +32,13 @@ window.addEventListener('keyup', (event) => {
 
 function checkInputCharactorAvailable(data) {
   const available = /[-+/*=()0-9]/;
+  const available02 = /[-+/*=()]/;
 
   if (available.test(data) === false) {
     alert('Please Input Number And Operator(+,-,/,*)');
+    calculator.userData.value = '';
+  } else if (available02.test(data)) {
+    alert('Please Input Number too');
     calculator.userData.value = '';
   } else {
     return;
